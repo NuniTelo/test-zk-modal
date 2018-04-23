@@ -1,0 +1,47 @@
+<!--<zk>-->
+    <!--<window apply="org.zkoss.bind.BindComposer" viewModel="@id('vm') @init('zk.springboot.TestVIewModel')">-->
+        <!--<label value="@bind(vm.emri)"/>-->
+        <!--<label value="@bind(vm.mbiemri)"/>-->
+        <!--<button onClick="@command('show')">Test</button>-->
+        <!--<listbox model="@load(vm.lista)" onClick="@command('clicked')"  selectedItem="@bind(vm.curSelectedPerson)">-->
+        <!--<template name="listmodel" var="items">-->
+            <!--<listitem  label="@load(items)" />-->
+        <!--</template>-->
+        <!--</listbox>-->
+        <!--<textbox value="@bind(vm.text)"/>-->
+
+        <!--<listbox model="@load(vm.map)">-->
+            <!--<template name="mapmodel" var="mapitems">-->
+                <!--<listitem label="@load(mapitems)" />-->
+            <!--</template>-->
+        <!--</listbox>-->
+
+        <!--&lt;!&ndash;<listbox model="@load(vm.users)">&ndash;&gt;-->
+            <!--&lt;!&ndash;<template name="usermodel" var="userEach">&ndash;&gt;-->
+                <!--&lt;!&ndash;<listitem label="@load(userEach.tags)" />&ndash;&gt;-->
+            <!--&lt;!&ndash;</template>&ndash;&gt;-->
+        <!--&lt;!&ndash;</listbox>&ndash;&gt;-->
+
+        <!--<listbox children="@load(vm.users)">-->
+            <!--<template name="children">-->
+                <!--<listitem label="@load(each.emri)" />-->
+                <!--<listitem label="@load(each.t2)"/>-->
+            <!--</template>-->
+        <!--</listbox>-->
+
+        <!--&lt;!&ndash;<listbox model="@load(vm.users)">&ndash;&gt;-->
+            <!--&lt;!&ndash;<template name="children">&ndash;&gt;-->
+                <!--&lt;!&ndash;<listcell label="@load()"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</template>&ndash;&gt;-->
+        <!--&lt;!&ndash;</listbox>&ndash;&gt;-->
+
+
+        <!--&lt;!&ndash;<radiogroup>&ndash;&gt;-->
+            <!--&lt;!&ndash;<vlayout children="@bind(vm.users)">&ndash;&gt;-->
+                <!--&lt;!&ndash;<template name="children">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<radio label="@load(each.tags)" value="@load(each.tags)"></radio>&ndash;&gt;-->
+                <!--&lt;!&ndash;</template>&ndash;&gt;-->
+            <!--&lt;!&ndash;</vlayout>&ndash;&gt;-->
+        <!--&lt;!&ndash;</radiogroup>&ndash;&gt;-->
+    <!--</window>-->
+<!--</zk>-->
