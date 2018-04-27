@@ -17,8 +17,7 @@ public class AssetHistory {
                         String description,
                         Date date,
                         String authorizedUserName,
-                        double actionCost)
-    {
+                        double actionCost) {
         this.actionTaken = actionTaken;
         this.actionId = actionId;
         this.description = description;
@@ -26,7 +25,8 @@ public class AssetHistory {
         this.authorizedUserName = authorizedUserName;
         this.actionCost = actionCost;
     }
-    public AssetHistory(){
+
+    public AssetHistory() {
     }
 
 

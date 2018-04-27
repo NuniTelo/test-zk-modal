@@ -14,7 +14,7 @@ public class Dimensions {
         this.weight = weight;
     }
 
-    public Dimensions(){
+    public Dimensions() {
     }
 
     public double getWidth() {

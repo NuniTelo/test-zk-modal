@@ -1,5 +1,14 @@
 <zk>
     <window>
         Modal dialog content
+
+        <listbox><listhead>
+            <listheader value="NUNI"/>
+        </listhead>
+            <listitem>
+                <listcell >Test</listcell>
+            </listitem>
+
+        </listbox>
     </window>
 </zk>

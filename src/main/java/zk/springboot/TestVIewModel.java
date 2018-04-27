@@ -4,8 +4,6 @@ package zk.springboot;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.Init;
 import org.zkoss.bind.annotation.NotifyChange;
-import org.zkoss.zul.A;
-import org.zkoss.zul.Button;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.Messagebox;
 import zk.springboot.Models.User;
@@ -15,15 +13,15 @@ import java.util.*;
 public class TestVIewModel {
     private String emri;
     private String mbiemri;
-    private List <String> lista = new ArrayList<>();
+    private List<String> lista = new ArrayList<>();
     private String curSelectedPerson;
     Label a;
     private String text;
-    private Map<String,String> map = new HashMap<>();
-    List<String> tags = Arrays.asList("Nuni","Test");
-    List<String> t2 = Arrays.asList("n2","t2");
-    String emri2 ="nuni";
-    User user = new User(tags,t2,emri2);
+    private Map<String, String> map = new HashMap<>();
+    List<String> tags = Arrays.asList("Nuni", "Test");
+    List<String> t2 = Arrays.asList("n2", "t2");
+    String emri2 = "nuni";
+    User user = new User(tags, t2, emri2);
     List<User> users = new ArrayList<>();
 
     public String getCurSelectedPerson() {
@@ -35,15 +33,15 @@ public class TestVIewModel {
     }
 
     @Init
-    public void init(){
+    public void init() {
         emri = "Nuni";
         mbiemri = "Telo";
         lista.add("test");
         lista.add("test2");
-        text="text";
-        map.put("emri","Nuni");
-        map.put("mbiemri","Telo");
-        map.put("mosha","21");
+        text = "text";
+        map.put("emri", "Nuni");
+        map.put("mbiemri", "Telo");
+        map.put("mosha", "21");
         users.add(user);
 
 
@@ -66,8 +64,8 @@ public class TestVIewModel {
     }
 
     @Command("show")
-    @NotifyChange({"emri","mbiemri"})
-    public void showData(){
+    @NotifyChange({"emri", "mbiemri"})
+    public void showData() {
         emri = "Naun";
         mbiemri = "Telo";
 
@@ -83,7 +81,7 @@ public class TestVIewModel {
     }
 
     @Command("clicked")
-    @NotifyChange({"selectedItem","text"})
+    @NotifyChange({"selectedItem", "text"})
     public void clicked() {
 
         Messagebox.show(text);

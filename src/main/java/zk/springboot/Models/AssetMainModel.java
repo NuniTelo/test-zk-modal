@@ -38,7 +38,7 @@ public class AssetMainModel {
 
 
     //status of the asset
-    private String assetStatus ="DRAFT";
+    private String assetStatus = "DRAFT";
 
     //location is saved as an objet with two fields
     private Date installationDate;
@@ -61,7 +61,7 @@ public class AssetMainModel {
 
 
     //long description for the asset
-    private String longDescription= "";
+    private String longDescription = "";
 
 
     //ingredients + tags for the asset
@@ -76,7 +76,7 @@ public class AssetMainModel {
     private GeoJsonMultiPoint listGeopoints;
 
     //Dimension is an object that will hold the WIDTH,HEIGHT AND LENGTH
-    private Dimensions dimensions ;
+    private Dimensions dimensions;
 
 
     //url that will hold marker-image
@@ -84,17 +84,17 @@ public class AssetMainModel {
 
 
     //this will be an array that will hold special features about an asset
-    private List<String> specialFeatures =new ArrayList<>();
+    private List<String> specialFeatures = new ArrayList<>();
 
-    private Map<String,Object> specificProperties= new HashMap<>();
+    private Map<String, Object> specificProperties = new HashMap<>();
 
     public AssetMainModel(String id, String brand, String model, String name, String category,
                           String subcategory, String serial_no, String assetStatus, Date installationDate,
                           GeoJsonPoint location, List<AssetHistory> assetHistory, String assetCondition,
                           String unitOfMeasure, String longDescription, List<String> tags, boolean multiGeopoints,
                           GeoJsonMultiPoint listGeopoints, Dimensions dimensions, String mapMarker, List<String> specialFeatures
-                          , Map<String, Object> specificProperties
- ) {
+            , Map<String, Object> specificProperties
+    ) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -119,7 +119,8 @@ public class AssetMainModel {
     }
 
 
-    public AssetMainModel(){}
+    public AssetMainModel() {
+    }
 
     public String getId() {
         return id;
@@ -229,7 +230,7 @@ public class AssetMainModel {
         return tags;
     }
 
-    public void setOtherData(List<String> tags ) {
+    public void setOtherData(List<String> tags) {
         this.tags = tags;
     }
 

@@ -13,7 +13,7 @@ public class User {
         this.emri = emri;
     }
 
-    public List<String> getTags(){
+    public List<String> getTags() {
         return tags;
     }
 

@@ -1,0 +1,74 @@
+<zk>
+    <window apply="zk.springboot.MVCModel.NewAssetModel" >
+
+        <!--<button id="btnGenRow" >dsada</button>-->
+        <!--<grid id="grid" sizedByContent="true" sclass="grid-no-effect" style="background: none;"   oddRowSclass="none">-->
+            <!--<columns vflex="1" >-->
+                <!--<column style="min-width:240px" align="left" >sd</column>-->
+                <!--<column style="min-width:200px" align="left" >dsad</column>-->
+                <!--<column style="min-width:120px" align="center" >sad</column>-->
+            <!--</columns>-->
+            <!--<rows id="attachRows" >-->
+                <!--<row >-->
+                    <!--<combobox value="sdsad" id="cmbAttachType" style="min-width: 100px" />-->
+                    <!--<textbox value="asdas" id="txtAttachname" style="min-width: 120px" />-->
+                    <!--<button label="sads" id="btnSelectAttach" width="90px" />-->
+                <!--</row>-->
+            <!--</rows>-->
+        <!--</grid>-->
+
+
+        <combobox id="spinerCategories">
+
+        </combobox>
+
+        <button id="btn">click me</button>
+
+
+        <div id="staticFieldsDiv">
+            <!--<vbox>-->
+            <label id="idLabel">ID</label>
+            <textbox constraint="no empty" id="labelTextBox" />
+            <space/>
+            <label id="brand">Brand</label>
+            <textbox id="brandTextBox"/>
+            <space/>
+            <label id="model">Model</label>
+            <textbox id="modelTextBox"/>
+            <space/>
+            <label id="serialNo">Serial No.</label>
+            <textbox id="serialTextBox"/>
+            <space/>
+            <label id="assetStatus">Status</label>
+            <textbox id="statusTextBox"/>
+            <space/>
+            <label id="assetCondition">Condition</label>
+            <textbox id="conditionTextBox"/>
+            <space/>
+            <label id="unitOfMeasure">Unit of Measure</label>
+            <textbox id="unitOfMeasureTextBox"/>
+            <space/>
+            <label id="longDescription">Description</label>
+            <textbox id="descriptionTextBox"/>
+            <space/>
+            <label id="tags">Tags</label>
+            <textbox id="tagsTextBox"/>
+            <space/>
+            <label id="mapMarker">Marker</label>
+            <textbox id="mapMarkerTextBox"/>
+            <space/>
+            <label id="specialFeatures">Features</label>
+            <textbox id="specialfeaturesTextBox"/>
+            <space/>
+            <!--</vbox>-->
+        </div>
+
+
+
+        <div id="dynamicFieldsDiv">
+
+        </div>
+
+
+    </window>
+</zk>
