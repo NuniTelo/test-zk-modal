@@ -51,8 +51,11 @@
     <window border="normal" viewModel="@id('vm') @init('zk.springboot.ViewModels.ListViewModel')" vflex="max"
             style="height: calc(100%)" width="100%">
         <div >
+
         <hbox>
             <button label="ADD ASSET" onClick="@command('addAsset')" style="cursor:pointer; background-color:red"/>
+        <space/>
+            <button id="getValues" label="ADD CATEGORY" onClick="@command('addCategory')" style="cursor:pointer; background-color:red"/>
         </hbox>
         </div>
         <!--<combobox>-->

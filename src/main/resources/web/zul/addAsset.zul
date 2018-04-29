@@ -1,4 +1,36 @@
 <zk>
+
+    <!--======================STYLE-CSS=======================================-->
+    <style>
+        <!--HEAD-TOOLBAR-->
+        .headToolbar {
+        background-color: #F6B106;
+        }
+
+        <!--HEAD-LOGO-->
+        .logoHead {
+        height:65px;
+        }
+
+        <!--HEAD-TEXT-->
+        .headText {
+        color:white;
+        font-size: 20px;
+        }
+
+    </style>
+    <!--======================END-STYLE-CSS=======================================-->
+
+    <toolbar sclass="headToolbar">
+        <hbox>
+            <image sclass="logoHead" src="https://rayonit.com/wp-content/uploads/2018/04/rayonit_white.png"/>
+            <space/>
+            <space/>
+            <label sclass="headText" value="ASSET MANAGEMENT SYSTEM"/>
+            <space/>
+        </hbox>
+    </toolbar>
+
     <window apply="zk.springboot.MVCModel.NewAssetModel" >
 
         <!--<button id="btnGenRow" >dsada</button>-->
@@ -66,8 +98,24 @@
 
 
         <div id="dynamicFieldsDiv">
+            <vbox>
 
+            </vbox>
         </div>
+
+        <grid id="gridModel">
+            <auxhead>
+                <auxheader colspan="2"/>
+            </auxhead>
+            <columns>
+                <column hflex="9">Field Name</column>
+                <!--<column hflex="7">Descriptionr</column>-->
+                <column hflex="9">Value</column>
+            </columns>
+
+            <rows sclass="narrow">
+            </rows>
+        </grid>
 
 
     </window>

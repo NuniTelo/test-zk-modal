@@ -1,19 +1,18 @@
 package zk.springboot.ViewModels;
 
 import org.zkoss.bind.annotation.*;
+import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Execution;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.Clients;
-import org.zkoss.zul.Checkbox;
-import org.zkoss.zul.ListModelList;
-import org.zkoss.zul.Textbox;
-import org.zkoss.zul.Window;
+import org.zkoss.zul.*;
 import org.zkoss.zul.event.PagingEvent;
 import zk.springboot.API.ApiService;
 import zk.springboot.FilterArgs;
 import zk.springboot.Models.AssetMainModel;
 import zk.springboot.Models.CategoryModel.CategoryModel;
 
+import java.awt.event.MouseEvent;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,7 +26,7 @@ public class ListViewModel {
     private List<AssetMainModel> assetsCopy;
 
     @Init
-    public void assetListModel() throws Exception {
+    public void init() throws Exception {
         Clients.showBusy(FilterArgs.SHOW_BUSY_MESSAGE);
         categoryList = ApiService.getCategories(FilterArgs.BASE_API_CATEGORIES);
         assetList = new ListModelList<>(ApiService.getData(FilterArgs.BASE_API_URL ,"1"));
@@ -103,7 +102,7 @@ public class ListViewModel {
     @NotifyChange("assetList")
     public void changePage(@ContextParam(ContextType.TRIGGER_EVENT)PagingEvent event) throws Exception {
         System.out.println(String.valueOf(event.getActivePage()));
-        assetList = new ListModelList<>(ApiService.getData(FilterArgs.BASE_API_URL , String.valueOf(event.getActivePage())));
+        assetList = new ListModelList<>(ApiService.getData(FilterArgs.BASE_API_URL , String.valueOf(event.getActivePage()+1)));
     }
 
 
@@ -135,6 +134,18 @@ public class ListViewModel {
     public void addAssetPage(){
         Executions.sendRedirect("addAsset.zul");
     }
+
+
+    //THIS IS HOW WE CAN FETCH DATA FROM MVVM
+    @Command("addCategory")
+    public void getData(@ContextParam(ContextType.COMPONENT) Component getValues,
+                        @ContextParam(ContextType.VIEW)Component view){
+        System.out.println("just some random fck tesr");
+        System.out.println(view.getChildren());
+
+        System.out.println(getValues.getFellows());
+    }
+
 
     //here we filter the data to display
     @Command("selectedAssetCondition")

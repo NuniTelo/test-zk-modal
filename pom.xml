@@ -31,10 +31,6 @@
 			<url>http://mavensync.zkoss.org/eval</url>
 		</repository>
 
-		<repository>
-			<id>zk ee evaluation repository</id>
-			<url>http://mavensync.zkoss.org/zk/ee-eval/</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
