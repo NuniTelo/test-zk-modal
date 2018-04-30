@@ -16,16 +16,11 @@ import zk.springboot.Models.MainModelStatus.Properties;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Filter;
+
 
 
 public class NewAssetModel extends SelectorComposer<Component> {
 
-    @Wire
-    Div dynamicFieldsDiv;
-
-    @Wire
-    Div staticFieldsDiv;
 
     @Wire
     Combobox spinerCategories;
@@ -59,6 +54,10 @@ public class NewAssetModel extends SelectorComposer<Component> {
         assetMainModelStatusProperties = assetMainModelStatus.getProperties();
 
         addToGridStaticFields(assetMainModelStatusProperties);
+
+        if(spinerCategories.getValue().equals("")|| spinerCategories.getValue()==null){
+            btn.setDisabled(true);
+        }
 
 
 //
@@ -169,93 +168,50 @@ public class NewAssetModel extends SelectorComposer<Component> {
             }
         }
 
-        ApiService.postCategory();
+//        ApiService.postCategory();
 
     }
-    
+
     @Listen("onSelect = #spinerCategories")
     public void onSpinerCategories() throws Exception {
-        Clients.showBusy("Loading Model....");
-        //here we select the spinner
-        String selectedSpinner = spinerCategories.getValue();
+        try {
+            Clients.showBusy("Loading Model....");
+            //here we select the spinner
+            String selectedSpinner = spinerCategories.getValue();
 
-        //if categorie spinner changes then we clear the dynamic fields
-        dynamicFieldsDiv.getChildren().clear();
+            gridModel.getRows().getChildren().clear();
 
-        gridModel.getRows().getChildren().clear();
-
-
-        //fetch properties from the API and save to a object so we can use it later
-        CategoryModel categoryModel = ApiService.getSingleCategory(FilterArgs.URL_GET_BY_CATEGORY + spinerCategories.getValue());
+            btn.setDisabled(false);
 
 
-        //we add to the grid once again
-        addToGridStaticFields(assetMainModelStatusProperties);
+            //fetch properties from the API and save to a object so we can use it later
+            CategoryModel categoryModel = ApiService.getSingleCategory(FilterArgs.URL_GET_BY_CATEGORY + spinerCategories.getValue());
 
 
-        System.out.println(categoryModel.getId());
-
-        //since we have a list of objects we can construct in this way
-        List<SpecificPropertiesModel> properties = categoryModel.getProperties();
+            //we add to the grid once again
+            addToGridStaticFields(assetMainModelStatusProperties);
 
 
-        //This is the method that we will use so we can add components to the page
-        addComponentsToPageDynamically(properties);
+            System.out.println(categoryModel.getId());
 
-        //now its time to add the dynamic fields
-        addComponentsToGridDynamically(properties);
-
-
-        System.out.println(spinerCategories.getValue());
-
-        Clients.clearBusy();
-    }
-
-    public void addComponentsToPageDynamically(List<SpecificPropertiesModel> properties){
-
-        for(SpecificPropertiesModel modelProperties : properties){
-            //here we filter the data if we want to
-            if(modelProperties.getPropertyType().toLowerCase().equals("string")){
-                Label labelString = new Label(modelProperties.getPropertyName());
-                Textbox data = new Textbox();
-                //here we make the textbox all required
-                data.setConstraint(FilterArgs.CONSTRAIN_NO_EMPTY);
-                data.setId(modelProperties.getPropertyName());
-                data.setStyle("");
-                dynamicFieldsDiv.appendChild(labelString);
-                dynamicFieldsDiv.appendChild(data);
-
-//                dynamicFieldsDiv.appendChild(new Label(model.getPropertyName()));
-//                dynamicFieldsDiv.appendChild(new Textbox());
-            }
-            else if (modelProperties.getPropertyType().toLowerCase().equals(FilterArgs.PROPERTY_NUMBER)){
-                Label labelNumber = new Label(modelProperties.getPropertyName());
-                Textbox numberFiled = new Textbox();
-                numberFiled.setConstraint(FilterArgs.CONSTRAIN_ONLY_NUMBER);
-                numberFiled.setId(modelProperties.getPropertyName());
-
-                dynamicFieldsDiv.appendChild(labelNumber);
-                dynamicFieldsDiv.appendChild(numberFiled);
-            }
-
-            else if(modelProperties.getPropertyType().toLowerCase().equals(FilterArgs.PROPERTY_ARRAY)){
-                Label labelArray = new Label(modelProperties.getPropertyName());
-                Textbox arrayField = new Textbox();
-                arrayField.setId(modelProperties.getPropertyName());
-                arrayField.setConstraint("no empty");
-                //multiline
-                arrayField.setMultiline(true);
+            //since we have a list of objects we can construct in this way
+            List<SpecificPropertiesModel> properties = categoryModel.getProperties();
 
 
-                dynamicFieldsDiv.appendChild(labelArray);
-                dynamicFieldsDiv.appendChild(arrayField);
-            }
+            //now its time to add the dynamic fields
+            addComponentsToGridDynamically(properties);
 
+
+            System.out.println(spinerCategories.getValue());
+
+            Clients.clearBusy();
         }
-//        dynamicFieldsDiv.getChildren().add(new Space());
-//        dynamicFieldsDiv.getChildren().add(new Space());
-//        dynamicFieldsDiv.getChildren().add(new Vbox());
-
+        catch (Exception e) {
+            Clients.clearBusy();
+            Clients.alert("ERROR! PLEASE SELECT ONE CATEGORY");
+            //TODO PASTRO FUSHAT QE NUK JANE TEK TE PERGJITHSHMET
+            btn.setDisabled(true);
+        }
     }
 
     public void addComponentsToGridDynamically(List<SpecificPropertiesModel> properties){

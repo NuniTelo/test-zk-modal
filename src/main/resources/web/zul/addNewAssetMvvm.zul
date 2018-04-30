@@ -1,0 +1,62 @@
+<zk>
+    <window viewModel="@id('vm') @init('zk.springboot.ViewModels.AddAssetViewModel')">
+
+        <!--DISPLAY THE LIST OF CATEGORIES-->
+        <div>
+            <hbox>
+                <label>Select one of categories: </label>
+                <space/>
+                <combobox model="@load(vm.categoryModels)" onSelect="@command('selectedCategory')">
+                    <template name="model" var="items">
+                        <comboitem label="@load(items.categoryName)"/>
+                    </template>
+                </combobox>
+                <space/>
+                <button id="btn" onClick="@command('click')">click me</button>
+            </hbox>
+        </div>
+        <!--END DISPLAYING THE LIST OF CATEGORIES-->
+
+        <!--<grid model="@bind(vm.listToDisplay)">-->
+            <!--<auxhead>-->
+                <!--<auxheader colspan="2"/>-->
+            <!--</auxhead>-->
+
+        <!--<columns>-->
+            <!--<column hflex="9">Field Name</column>-->
+            <!--<column hflex="9">Value</column>-->
+        <!--</columns>-->
+
+
+            <!--<template name="modelList" var="items">-->
+                <!--<row  sclass="narrow">-->
+                    <!--<label value="@load(items)"/>-->
+                    <!--<textbox width="100%"/>-->
+                <!--</row>-->
+            <!--</template>-->
+
+        <!--</grid>-->
+
+        <grid model="@bind(vm.listToDisplay)">
+            <auxhead>
+                <auxheader colspan="2" label="Contributor of ZK International Message(Part)" />
+            </auxhead>
+            <columns>
+                <column hflex="9">Language</column>
+                <column hflex="9">Contributor</column>
+            </columns>
+
+            <rows sclass="narrow" >
+                <template name="model" var="itemsList">
+                <row>
+                    <label value="@load(itemsList)" />
+                    <textbox />
+                </row>
+                </template>
+            </rows>
+
+        </grid>
+
+
+    </window>
+</zk>

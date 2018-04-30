@@ -50,58 +50,17 @@
         <!--</grid>-->
 
 
-        <combobox id="spinerCategories">
 
-        </combobox>
-
-        <button id="btn">click me</button>
-
-
-        <div id="staticFieldsDiv">
-            <!--<vbox>-->
-            <label id="idLabel">ID</label>
-            <textbox constraint="no empty" id="labelTextBox" />
-            <space/>
-            <label id="brand">Brand</label>
-            <textbox id="brandTextBox"/>
-            <space/>
-            <label id="model">Model</label>
-            <textbox id="modelTextBox"/>
-            <space/>
-            <label id="serialNo">Serial No.</label>
-            <textbox id="serialTextBox"/>
-            <space/>
-            <label id="assetStatus">Status</label>
-            <textbox id="statusTextBox"/>
-            <space/>
-            <label id="assetCondition">Condition</label>
-            <textbox id="conditionTextBox"/>
-            <space/>
-            <label id="unitOfMeasure">Unit of Measure</label>
-            <textbox id="unitOfMeasureTextBox"/>
-            <space/>
-            <label id="longDescription">Description</label>
-            <textbox id="descriptionTextBox"/>
-            <space/>
-            <label id="tags">Tags</label>
-            <textbox id="tagsTextBox"/>
-            <space/>
-            <label id="mapMarker">Marker</label>
-            <textbox id="mapMarkerTextBox"/>
-            <space/>
-            <label id="specialFeatures">Features</label>
-            <textbox id="specialfeaturesTextBox"/>
-            <space/>
-            <!--</vbox>-->
+        <div>
+            <hbox>
+                <label>Select one of categories: </label>
+                <space/>
+                <combobox id="spinerCategories"/>
+                <space/>
+                <button id="btn">click me</button>
+            </hbox>
         </div>
 
-
-
-        <div id="dynamicFieldsDiv">
-            <vbox>
-
-            </vbox>
-        </div>
 
         <grid id="gridModel">
             <auxhead>
@@ -112,7 +71,6 @@
                 <!--<column hflex="7">Descriptionr</column>-->
                 <column hflex="9">Value</column>
             </columns>
-
             <rows sclass="narrow">
             </rows>
         </grid>
