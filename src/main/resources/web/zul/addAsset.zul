@@ -64,12 +64,14 @@
 
         <grid id="gridModel">
             <auxhead>
-                <auxheader colspan="2"/>
+                <auxheader colspan="3"/>
             </auxhead>
             <columns>
-                <column hflex="9">Field Name</column>
-                <!--<column hflex="7">Descriptionr</column>-->
-                <column hflex="9">Value</column>
+                <column hflex="5">Field Name</column>
+
+                <column hflex="7">Description</column>
+
+                <column hflex="6">Value</column>
             </columns>
             <rows sclass="narrow">
             </rows>

@@ -1,0 +1,18 @@
+<zk>
+    <style src="web/css/test.css"/>
+
+    <vlayout hflex="1" apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('vm') @init('zk.springboot.ChosenboxViewModel')">
+
+        <vlayout sclass="mail" hflex="1">
+            <hbox sclass="mailformrow" hflex="1" align="center">
+                <label sclass="maillabel" value="Label">To</label>
+                <chosenbox sclass="mailinput" hflex="1"
+                           model="@load(vm.contactsModel)"
+                           emptyMessage="type or select contacts (existing or new ones)"
+                           creatable="true" createMessage="Add to list: {0}"
+                           onSearch="@command('newContact', contact=event.value)" />
+            </hbox>
+        </vlayout>
+    </vlayout>
+</zk>

@@ -2,27 +2,15 @@ package zk.springboot.API;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import okhttp3.*;
-import org.springframework.data.domain.PageRequest;
-import org.zkoss.json.JSONArray;
 import org.zkoss.json.JSONObject;
-import org.zkoss.xel.zel.ELXelExpression;
-import org.zkoss.zk.ui.Executions;
-import org.zkoss.zul.ListModelList;
 import zk.springboot.FilterArgs;
 import zk.springboot.Models.AssetMainModel;
 import zk.springboot.Models.CategoryModel.CategoryModel;
 import zk.springboot.Models.CategoryModel.SpecificPropertiesModel;
-import zk.springboot.Models.MainModelStatus.AssetMainModelStatus;
-
-import javax.swing.*;
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.io.IOException;
 import java.util.*;
-import java.util.logging.Filter;
 
 public class ApiService {
 
@@ -118,21 +106,19 @@ public class ApiService {
         return selectedCategory;
     }
 
-    public static AssetMainModelStatus getAssetMainModelStatus(String url) throws Exception{
+    public static CategoryModel getAssetMainModelStatus(String url) throws Exception{
         Response response = buildByUrl(url);
         final GsonBuilder gsonBuilder = new GsonBuilder();
         final Gson gson = gsonBuilder.create();
 
-        AssetMainModelStatus assetMainModelStatus = gson.fromJson(response.body().charStream(), AssetMainModelStatus.class);
+        CategoryModel assetMainModelStatus = gson.fromJson(response.body().charStream(), CategoryModel.class);
 
         return assetMainModelStatus;
     }
 
-
 //    public static List<AssetMainModelStatus> getByAssetCondition(String url){
 //
 //    }
-
     //FROM HERE WE CAN CREATE A NEW CATEGORY
     //TODO ARRAY AS A PARAMETER OR MAP
     public static void postCategory() throws IOException {
@@ -146,7 +132,7 @@ public class ApiService {
 
             //this is hard-coded
             List<SpecificPropertiesModel> properties = new ArrayList<>() ;
-            SpecificPropertiesModel specificPropertiesModel = new SpecificPropertiesModel("test2","test2");
+            SpecificPropertiesModel specificPropertiesModel = new SpecificPropertiesModel("test2","test2",true,"tesst");
             properties.add(specificPropertiesModel);
 
             //for every element to the list we can create a map and then can add that map to the list

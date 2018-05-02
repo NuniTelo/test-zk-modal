@@ -15,46 +15,53 @@
                 <button id="btn" onClick="@command('click')">click me</button>
             </hbox>
         </div>
-        <!--END DISPLAYING THE LIST OF CATEGORIES-->
 
-        <!--<grid model="@bind(vm.listToDisplay)">-->
-            <!--<auxhead>-->
-                <!--<auxheader colspan="2"/>-->
-            <!--</auxhead>-->
+        <!--&lt;!&ndash;GRID&ndash;&gt;-->
+        <!--<grid model="@bind(vm.assetMainModelStatusProperties)">-->
+            <!--<columns>-->
+                <!--<column hflex="5">Field</column>-->
+                <!--<column hflex="7">Description</column>-->
+                <!--<column hflex="6">Value</column>-->
+            <!--</columns>-->
 
-        <!--<columns>-->
-            <!--<column hflex="9">Field Name</column>-->
-            <!--<column hflex="9">Value</column>-->
-        <!--</columns>-->
-
-
-            <!--<template name="modelList" var="items">-->
-                <!--<row  sclass="narrow">-->
-                    <!--<label value="@load(items)"/>-->
-                    <!--<textbox width="100%"/>-->
+            <!--<rows sclass="narrow" >-->
+                <!--<template name="model" var="itemsList">-->
+                <!--<row>-->
+                    <!--<label value="@load(itemsList.propertyName)" />-->
+                    <!--<label value="@load(itemsList.instruction)"/>-->
+                    <!--<textbox width="100%" id="@load(itemsList.propertyName)" constraint="@load(itemsList.required  ? 'no empty' : ' ')"/>-->
                 <!--</row>-->
-            <!--</template>-->
+                <!--</template>-->
+
+               <!---->
+            <!--</rows>-->
 
         <!--</grid>-->
 
-        <grid model="@bind(vm.listToDisplay)">
-            <auxhead>
-                <auxheader colspan="2" label="Contributor of ZK International Message(Part)" />
-            </auxhead>
+        <grid model="@load(vm.assetMainModelStatusProperties) @template(each.propertyType eq 'String'  ? 'template1' : 'template2')">
             <columns>
-                <column hflex="9">Language</column>
-                <column hflex="9">Contributor</column>
+                <column hflex="5">Field</column>
+                <column hflex="7">Description</column>
+                <column hflex="6">Value</column>
             </columns>
-
-            <rows sclass="narrow" >
-                <template name="model" var="itemsList">
+            <template name="template1" >
                 <row>
-                    <label value="@load(itemsList)" />
-                    <textbox />
+                    <label value="@load(each.propertyName)" />
+                    <label value="@load(each.instruction)"/>
+                    <textbox width="100%" constraint="@load(each.required  ? 'no empty' : ' ')"/>
                 </row>
-                </template>
-            </rows>
+            </template>
 
+            <template name="template2" >
+                <row>
+                    <label value="@load(each.propertyName)" />
+                    <label value="@load(each.instruction)"/>
+                    <chosenbox width="100%"
+                               creatable="true" createMessage="Add to list: {0}"
+                               onSearch="@command('newContact', contact=event.value)"
+                                id="@load(each.propertyName)"/>
+                </row>
+            </template>
         </grid>
 
 

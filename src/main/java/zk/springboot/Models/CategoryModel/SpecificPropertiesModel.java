@@ -2,15 +2,16 @@ package zk.springboot.Models.CategoryModel;
 
 public class SpecificPropertiesModel {
 
-    String propertyName;
-    String propertyType;
+    private String propertyName;
+    private String propertyType;
+    private boolean required;
+    private String instruction;
 
-    public SpecificPropertiesModel(String propertyName, String propertyType) {
+    public SpecificPropertiesModel(String propertyName, String propertyType, boolean required, String instruction) {
         this.propertyName = propertyName;
         this.propertyType = propertyType;
-    }
-
-    public SpecificPropertiesModel() {
+        this.required = required;
+        this.instruction = instruction;
     }
 
     public String getPropertyName() {
@@ -28,4 +29,21 @@ public class SpecificPropertiesModel {
     public void setPropertyType(String propertyType) {
         this.propertyType = propertyType;
     }
+
+    public boolean isRequired() {
+        return required;
+    }
+
+    public void setRequired(boolean required) {
+        this.required = required;
+    }
+
+    public String getInstruction() {
+        return instruction;
+    }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
 }
+
