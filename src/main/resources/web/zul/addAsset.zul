@@ -57,7 +57,7 @@
                 <space/>
                 <combobox id="spinerCategories"/>
                 <space/>
-                <button id="btn">click me</button>
+                <button id="sendData">Create New Asset</button>
             </hbox>
         </div>
 

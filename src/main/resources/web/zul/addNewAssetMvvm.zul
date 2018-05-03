@@ -56,7 +56,7 @@
                 <row>
                     <label value="@load(each.propertyName)" />
                     <label value="@load(each.instruction)"/>
-                    <chosenbox width="100%"
+                    <chosenbox width="100%" onCreate="@command('createNewModelList')"
                                creatable="true" createMessage="Add to list: {0}"
                                onSearch="@command('newContact', contact=event.value)"
                                 id="@load(each.propertyName)"/>

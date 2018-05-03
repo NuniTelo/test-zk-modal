@@ -41,10 +41,29 @@ public class FilterArgs {
 
     public static String PROPERTY_ARRAY = "array";
 
+    public static String PROPERTY_DOUBLE = "double";
+
+    public static String PROPERTY_MULTIGEOPOINT_BOOLEAN = "boolean";
+
+    public static String PROPERTY_MULTI_GEO_POINT = "geojsonmultipoint";
+
+    public static String PROPERTY_SINGLE_GEO_POINT = "geojsonpoint";
+
+    public static String PROPERTY_DATE = "date";
+
+    public static String PROPERTY_LIST = "list";
+
     public static String CONSTRAIN_NO_EMPTY = "no empty: This field is required!";
 
     public static String CONSTRAIN_ONLY_NUMBER = "/^[0-9]+$/: Please enter a number";
 
+    public static String ID_FOR_CHOSENBOX = "choosenbox";
+
+    public static String CHOSENBOX_MESSAGE = "Add to list: ";
+
+    public static String CHOSENBOX_EMPTY = "No data to list.";
+
+    public static String DATE_TYPE = "yyyy/MM/dd";
 
 
 

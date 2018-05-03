@@ -7,6 +7,7 @@ public class SpecificPropertiesModel {
     private boolean required;
     private String instruction;
 
+    
     public SpecificPropertiesModel(String propertyName, String propertyType, boolean required, String instruction) {
         this.propertyName = propertyName;
         this.propertyType = propertyType;

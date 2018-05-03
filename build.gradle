@@ -40,6 +40,7 @@ dependencies {
 	compile "org.zkoss.zk:zkmax:${zkVersion}", withoutSlf4J   /*ZK EE*/
 	compile "org.zkoss.zk:zuti:${zkVersion}", withoutSlf4J    /*optional enable for shadow elements support ZK EE*/
 	compile "org.zkoss.zk:zkplus:${zkVersion}", withoutSlf4J  /*optional enable for 3rd party framework integration support */
+// https://mvnrepository.com/artifact/junit/junit
 
 	compile "commons-io:commons-io:${commonsIoVersion}"
 }

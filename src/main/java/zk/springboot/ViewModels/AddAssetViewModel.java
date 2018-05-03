@@ -2,7 +2,6 @@ package zk.springboot.ViewModels;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import org.apache.poi.hssf.record.formula.functions.Even;
 import org.zkoss.bind.annotation.*;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.event.Event;
@@ -43,9 +42,9 @@ ListModelList<String> listNuni = new ListModelList<>();
 
 //    ListModelList<String> modelList = new ListModelList<>();
 
-    Multimap<String, String> multimap = ArrayListMultimap.create();
+        Multimap<String, String> multimap = ArrayListMultimap.create();
 
-
+    Map<String,ListModelList<String>> modelListMap = new HashMap<>();
 
 
 
@@ -58,7 +57,7 @@ ListModelList<String> listNuni = new ListModelList<>();
         assetMainModelStatus = ApiService.getAssetMainModelStatus(FilterArgs.MAIN_CATEGORY_STATUS);
         //we connvert only the properties to a listModelList
         assetMainModelStatusProperties = new ListModelList<>(assetMainModelStatus.getProperties());
-        //we save the types to a list so we can indentify
+        //we save the types to a listTestNuni so we can indentify
         types = new ListModelList<>();
         for(SpecificPropertiesModel model : assetMainModelStatusProperties){
         types.add(model.getPropertyType());
@@ -91,6 +90,8 @@ ListModelList<String> listNuni = new ListModelList<>();
         }
         System.out.println(grid.getFellows());
     }
+
+    ListModelList<String> da = new ListModelList<>();
 
     @Command("newContact")
     public void addNewTag(@BindingParam("contact") String contact,
@@ -174,16 +175,50 @@ ListModelList<String> listNuni = new ListModelList<>();
 //            }
 //
 //        }
-        ListModelList<String> modelList = new ListModelList<>();
-        for(int i=0; i < multimap.size(); i++) {
-                modelList.add(String.valueOf(multimap.get(component.getId())));
-                modelList.addToSelection(String.valueOf(multimap.get(component.getId())));
-        }
-            ((Chosenbox) component).setModel(modelList);
+//        ListModelList<String> modelList = new ListModelList<>();
+//        for(int i=0; i < multimap.size(); i++) {
+//                modelList.add(String.valueOf(multimap.get(component.getId())));
+//                modelList.addToSelection(String.valueOf(multimap.get(component.getId())));
+//        }
+//        for (Map.Entry<String, String> entry : multimap.ent) {
+//            if (entry.getKey().equals(component.getId())) {
+//                modelList.add(entry.getValue());
+//                modelList.addToSelection(entry.getValue());
+//                System.out.println("KEY : " + entry.getKey() + " VALUE " + entry.getValue());
+//            }
+//
+//        }
 
+//            ((Chosenbox) component).setModel(modelList);
 
+            listTestNuni.add(contact);
+            listTestNuni.addToSelection(contact);
 
+    }
 
+    ListModelList<String> listTestNuni;
+    @Command("createNewModelList")
+    public void createNewModelList (@ContextParam(ContextType.COMPONENT) Component component)
+    {
+
+       listTestNuni = new ListModelList<>();
+        ((Chosenbox) component).setModel(listTestNuni);
+    }
+
+    public ListModelList<String> getListTestNuni() {
+        return listTestNuni;
+    }
+
+    public void setListTestNuni(ListModelList<String> listTestNuni) {
+        this.listTestNuni = listTestNuni;
+    }
+
+    public Map<String, ListModelList<String>> getModelListMap() {
+        return modelListMap;
+    }
+
+    public void setModelListMap(Map<String, ListModelList<String>> modelListMap) {
+        this.modelListMap = modelListMap;
     }
 
     public List<CategoryModel> getCategoryModels() {
